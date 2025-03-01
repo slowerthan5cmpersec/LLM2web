@@ -25,7 +25,7 @@ FastAPI dev main.py
 
 ### pre-setting
  * GPU 사용 가능해야 하기에 nvidia Docker Runtime image 설치 필요
- * [docker-nvidia/cuda](https://hub.docker.com/r/nvidia/cuda) tags에 여러 버전 확인 가능
+ * [docker-nvidia/cuda](https://hub.docker.com/r/nvidia/cuda) tags에서 여러 버전 확인 가능
  * 서버 사양 맞춰서 
 
 ```Dockerfile
