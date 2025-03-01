@@ -32,7 +32,7 @@ FastAPI dev main.py
 FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
 ```
 * 이부분 수정
-
+* [CUDA wiki](https://en.m.wikipedia.org/wiki/CUDA) GPUs supported 항목 참조
 
 
 ### terminal
