@@ -46,3 +46,7 @@ docker run --gpus all -p 8000:8000 my-fastapi-app
 * 한번 직접 브라우저로 접속해서 **This site can’t be reached** 메시지
 * 확인 후 다시 터미널 확인하면 모델 로딩 로그 확인 가능,
 * 로딩 끝날때까지 기다리다가 포트 재생성되면 작업 시작
+
+## request_test
+.py: 빠르게 모델 응답 & 스트리밍 여부 확인
+.htm: fetch & post + streaming + markdown 변환 예제 참고
