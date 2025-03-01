@@ -4,7 +4,7 @@
 runpod / openAI / anthropic <- API 키 필요, 요청
   
 
-## **FastAPI** how to load api server
+## **FastAPI** how to
 
 ### in terminal:
 
