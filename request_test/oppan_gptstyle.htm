@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Markdown</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <input type="text" id="input" placeholder="Enter text">
+    <button onclick="startStream()">Start</button>
+
+    <h2>Streaming Markdown Output</h2>
+    <div id="Nnew" class="typing"></div>
+
+    <script>
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function startStream() {
+            let k = 0;
+            let text = "";
+            const Nnew = document.getElementById("Nnew");
+            const inputValue = document.getElementById("input").value;
+
+            async function ddd(j, chars) {
+                text += chars[j]; // 텍스트 누적
+                if (chars[j] === " ") {Nnew.innerHTML = marked.parse(text)}
+                else {Nnew.innerHTML = marked.parse(text + '█');}// 마크다운 변환 적용
+                
+                if (j < chars.length - 1) {
+                    await delay(1);
+                }
+            }
+
+
+            const response = await fetch("http://127.0.0.1:8000/generate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: inputValue })
+            });
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value, { stream: true });
+                const chars = chunk.split("");
+
+                while (k < chars.length) {
+                    Nnew.classList.add("typing");
+                    await ddd(k, chars);
+                    k += 1;
+                }
+
+                k = 0;
+                setTimeout(() => Nnew.classList.remove("typing"), 200);
+            }
+        }
+    </script>
+
+</body>
+</html>
