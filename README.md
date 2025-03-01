@@ -11,7 +11,7 @@ runpod / openAI / anthropic <- API 키 필요, 요청
 ```terminal
 uvicorn 파일이름:app --reload
 # ex) vllm/main.py
-uvicorn main:app --reload
+uvicorn vllm/main:app --reload
 ```
 
 ### in powershell:
