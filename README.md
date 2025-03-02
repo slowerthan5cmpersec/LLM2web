@@ -24,6 +24,7 @@ FastAPI dev main.py
 ## Docker how to
 
 ### pre-setting
+#### server with GPU
  * GPU 사용 가능해야 하기에 nvidia Docker Runtime image 설치 필요
  * [docker-nvidia/cuda](https://hub.docker.com/r/nvidia/cuda) tags에서 여러 버전 확인 가능
  * 서버 사양 맞춰서 
@@ -34,6 +35,18 @@ FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
 * 이부분 수정
 * [CUDA wiki](https://en.m.wikipedia.org/wiki/CUDA) GPUs supported 항목 참조
 
+#### server GPU_less (API)
+* [Dockerfile_serverless](https://github.com/slowerthan5cmpersec/LLM2web/blob/main/Dockerfiles/Dockerfile_serverless) 사용
+* Dockerfiles에서 최상위로 빼내고, 이름 Dockerfile로 바꾸고 사용
+* 사용하려는 API 따라서
+```
+COPY ./runpod/runpod.py /fastapi/
+```
+```
+CMD ["uvicorn", "runpod:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+```
+* 이런식으로 수정
+* 사용 메인 파일에서 API key, base url 값 다 넣었는지 확인
 
 ### terminal
 
