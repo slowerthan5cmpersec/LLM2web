@@ -1,8 +1,8 @@
 # LLM2web
 
 ## before running
-- **openAI** / **anthropic** / **huggingface** <- <ins>**API**</ins> 키 필요, [구글 독스](https://docs.google.com/document/d/1d9dwWi_1I1ka3cJxiVDRBJ3--9gN7M3svROZjlENnLw/edit?usp=drivesdk)에 요청
-- **runpod** <- API + <ins>**base_URL**</ins> 필요, // 
+- **openAI** / **anthropic** / **huggingface** <- <ins>API</ins> 키 필요, [구글 독스](https://docs.google.com/document/d/1d9dwWi_1I1ka3cJxiVDRBJ3--9gN7M3svROZjlENnLw/edit?usp=drivesdk)에 요청
+- **runpod** <- API + <ins>base_URL</ins> 필요, // 
 
 ## **FastAPI** how to
 
@@ -37,7 +37,7 @@ FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
 
 #### server GPU_less (API)
 * [Dockerfile_serverless](https://github.com/slowerthan5cmpersec/LLM2web/blob/main/Dockerfiles/Dockerfile_serverless) 사용
-* Dockerfiles에서 최상위로 빼내고, 이름 Dockerfile로 바꾸고 사용
+* 위 파일 Dockerfiles에서 최상위로 빼내고, 이름 Dockerfile로 바꾸고 사용
 * 사용하려는 API 따라서
 ```
 COPY ./runpod/runpod.py /fastapi/
@@ -46,7 +46,7 @@ COPY ./runpod/runpod.py /fastapi/
 CMD ["uvicorn", "runpod:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 ```
 * 이런식으로 수정
-* 사용 메인 파일에서 API key, base url 값 다 넣었는지 확인
+* 사용 메인 파일에서 <ins>API key</ins>, <ins>base url</ins> 값 다 넣었는지 확인
 
 ### terminal
 
