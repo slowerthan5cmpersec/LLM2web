@@ -33,10 +33,7 @@ FastAPI dev main.py
  * GPU 사용 가능해야 하기에 nvidia Docker Runtime image 설치 필요
  * [docker-nvidia/cuda](https://hub.docker.com/r/nvidia/cuda) tags에서 여러 버전 확인 가능
  * 서버 사양 맞춰서 
-
-```Dockerfile
-FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
-```
+https://github.com/slowerthan5cmpersec/LLM2web/blob/69f88e1ddec6384b359bd88ab3625eea62f2b35d/Dockerfiles/Dockerfile#L7
 * 이부분 수정
 * [CUDA wiki](https://en.m.wikipedia.org/wiki/CUDA) GPUs supported 항목 참조
 
