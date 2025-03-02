@@ -1,8 +1,8 @@
 # LLM2web
 
 ## before running
-- **openAI** / **anthropic** / **huggingface** <- **API** 키 필요, [구글 독스](https://docs.google.com/document/d/1d9dwWi_1I1ka3cJxiVDRBJ3--9gN7M3svROZjlENnLw/edit?usp=drivesdk)에 요청
-- **runpod** <- API + **base_URL** 필요, // 
+- **openAI** / **anthropic** / **huggingface** <- <U>**API**</U> 키 필요, [구글 독스](https://docs.google.com/document/d/1d9dwWi_1I1ka3cJxiVDRBJ3--9gN7M3svROZjlENnLw/edit?usp=drivesdk)에 요청
+- **runpod** <- API + <U>**base_URL**</U> 필요, // 
 
 ## **FastAPI** how to
 
