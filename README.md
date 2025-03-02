@@ -10,7 +10,9 @@
 
 ```terminal
 uvicorn 파일이름:app --reload
-# ex) vllm/main.py
+```
+* ex) vllm/main.py
+```
 uvicorn vllm/main:app --reload
 ```
 
