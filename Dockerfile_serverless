@@ -16,14 +16,14 @@ COPY requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy files
-COPY ./models/* /fastapi/models
-COPY ./main.py /fastapi/
+# COPY ./models/* /fastapi/models
+COPY ./runpod/runpod.py /fastapi/
 # COPY ./packages /fastapi/packages
 
 
 # CMD ["python", "main.py", "--host", "0.0.0.0", "--port", "8088"]
 # or 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "runpod:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
 
 
