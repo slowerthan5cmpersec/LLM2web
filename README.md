@@ -91,6 +91,8 @@ docker run -d --name mycontainer -p 8000:8000 my-fastapi-app
 * **.htm**: fetch & post + streaming + markdown 변환 예제 참고 (chatGPT 모방)
 
 
+## 구분
+
 #### server with GPU
 - langchain, vllm
 #### server with GPU_less (API)
