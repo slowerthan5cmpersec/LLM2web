@@ -35,7 +35,7 @@ FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
 * 이부분 수정
 * [CUDA wiki](https://en.m.wikipedia.org/wiki/CUDA) GPUs supported 항목 참조
 
-#### server GPU_less (API)
+#### server with GPU_less (API)
 * [Dockerfile_serverless](https://github.com/slowerthan5cmpersec/LLM2web/blob/main/Dockerfiles/Dockerfile_serverless) 사용
 * 위 파일 Dockerfiles에서 최상위로 빼내고, 이름 Dockerfile로 바꾸고 사용
 * 사용하려는 API 따라서
@@ -49,13 +49,19 @@ CMD ["uvicorn", "runpod:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 * 사용 메인 파일에서 <ins>API key</ins>, <ins>base url</ins> 값 다 넣었는지 확인
 
 ### terminal
-
+#### server with GPU
 ```terminal
 docker build -t my-fastapi-app .
 docker run --gpus all -p 8000:8000 my-fastapi-app
 ```
+#### server with GPU_less (API)
+```terminal
+docker build -t my-fastapi-app .
+docker run -d 8000:8000 my-fastapi-app
+```
 
 ### after port generated
+#### server with GPU
 * 한번 직접 브라우저로 접속해서 **This site can’t be reached** 메시지
 * 확인 후 다시 터미널 확인하면 모델 로딩 로그 확인 가능,
 * 로딩 끝날때까지 기다리다가 포트 재생성되면 작업 시작
