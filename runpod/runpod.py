@@ -30,7 +30,10 @@ class QueryRequest(BaseModel):
 async def generate_post(request: QueryRequest):
   response_stream = client.chat.completions.create(
   model='fivecmpersec/PillME-POCO-v0-7.8B',
-  messages=[{"role": "user", "content": f"{request.query}"}],
+  messages=[
+     {"role": "system", "content": "너는 필미가 만든 영양관리 전문 채팅 모델 포코야. \n사용자의 답변에 하나도 빠짐없이 자세히 답변해줘. \n마지막에 내용을 한줄로 잘 정리해주길 바래"}, 
+     {"role": "user", "content": f"{request.query}"}
+     ],
   temperature=0,
   max_tokens=400,
   stream=True)
