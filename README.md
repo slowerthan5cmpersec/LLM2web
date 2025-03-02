@@ -47,11 +47,12 @@ https://github.com/slowerthan5cmpersec/LLM2web/blob/69f88e1ddec6384b359bd88ab362
 * 위 파일 Dockerfiles에서 최상위로 빼내고, 이름 Dockerfile로 바꾸고 사용
 * 사용하려는 API 따라서
 ###### ex) openAI
-https://github.com/slowerthan5cmpersec/LLM2web/blob/d634dae4f6e0b01e37dcd5bc4813ae7bb8e4f012/Dockerfiles/Dockerfile_serverless#L26
+https://github.com/slowerthan5cmpersec/LLM2web/blob/a4c15709129573fba688f2ab110dfbfd1f1ff21d/Dockerfiles/Dockerfile_serverless#L20
 ```Dockerfile
 COPY ./openAI/open_main.py /fastapi/
 ```
-https://github.com/slowerthan5cmpersec/LLM2web/blob/a4c15709129573fba688f2ab110dfbfd1f1ff21d/Dockerfiles/Dockerfile_serverless#L20
+
+https://github.com/slowerthan5cmpersec/LLM2web/blob/d634dae4f6e0b01e37dcd5bc4813ae7bb8e4f012/Dockerfiles/Dockerfile_serverless#L26
 ```Dockerfile
 CMD ["uvicorn", "open_main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 ```
