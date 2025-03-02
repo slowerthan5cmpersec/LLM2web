@@ -67,6 +67,7 @@ CMD ["uvicorn", "open_main:app", "--host", "0.0.0.0", "--port", "8000", "--reloa
 
 
 
+
 ### terminal
 #### server with GPU
 ```terminal
@@ -88,3 +89,9 @@ docker run -d --name mycontainer -p 8000:8000 my-fastapi-app
 ## request_test
 * **.py**: 빠르게 모델 응답 & 스트리밍 여부 확인
 * **.htm**: fetch & post + streaming + markdown 변환 예제 참고 (chatGPT 모방)
+
+
+#### server with GPU
+- langchain, vllm
+#### server with GPU_less (API)
+- anthropic, openAI, runpod
