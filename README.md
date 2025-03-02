@@ -57,7 +57,7 @@ docker run --gpus all -p 8000:8000 my-fastapi-app
 #### server with GPU_less (API)
 ```terminal
 docker build -t my-fastapi-app .
-docker run -d -p 8000:8000 my-fastapi-app
+docker run -d --name mycontainer -p 8000:8000 my-fastapi-app
 ```
 
 ### after port generated
