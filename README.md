@@ -94,6 +94,6 @@ docker run -d --name mycontainer -p 8000:8000 my-fastapi-app
 ## 구분
 
 #### server with GPU
-- langchain, vllm
+- langchain/vllm, vllm
 #### server with GPU_less (API)
-- anthropic, openAI, runpod
+- langchain/hf, anthropic, openAI, runpod
