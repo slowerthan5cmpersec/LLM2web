@@ -8,7 +8,7 @@
 
 - runpod 서버리스 말고 직접 대여 <- rtx A4500 <- |on demand 0.34$/hr| or |spot(interruptible) 0.18$/hr|
 - 0.18$/h * 12h/d * 30d = 64.8$, 사용량이 적더라도 고정비용 지출인것이 고려할점 (서버리스 <- by 사용량)
-- not tested yet
+- not tested yet, 서빙 시간 아직 모름, 아무 떄에나 요청하더라도 바로 토큰 하나라도 나오긴 할것이라고 생각
 
 ## before running
 - **openAI** / **anthropic** / **huggingface** <- <ins>API</ins> 키 필요, [구글 독스](https://docs.google.com/document/d/1d9dwWi_1I1ka3cJxiVDRBJ3--9gN7M3svROZjlENnLw/edit?usp=drivesdk)에 요청
