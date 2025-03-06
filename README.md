@@ -1,5 +1,14 @@
 # LLM2web
 
+- plan: gpu 서버리스 방식으로 서빙 / runpod 개인모델 + openAI API 활용
+
+- runpod 개인모델 서빙 시 최소 30초 - 최대 3분 소모
+
+- openAI 바로 호출 가능
+
+- runpod 서버리스 말고 직접 대여 <- rtx A4500 <- |on demand 0.34$/hr| or |spot(interruptible) 0.18$/hr|
+- not tested yet
+
 ## before running
 - **openAI** / **anthropic** / **huggingface** <- <ins>API</ins> 키 필요, [구글 독스](https://docs.google.com/document/d/1d9dwWi_1I1ka3cJxiVDRBJ3--9gN7M3svROZjlENnLw/edit?usp=drivesdk)에 요청
 - **runpod** <- API + <ins>base_URL</ins> 필요, // 
