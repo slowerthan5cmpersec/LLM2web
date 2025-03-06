@@ -1,15 +1,5 @@
 # LLM2web
 
-- plan: gpu 서버리스 방식으로 서빙 / runpod 개인모델 + openAI API 활용
-
-- runpod 개인모델 서빙 시 최소 30초 - 최대 3분 소모 / 모델 올라간 이후부터는 5초 내외 답변 생성 
-
-- openAI 바로 호출 가능
-
-- runpod 서버리스 말고 직접 대여 <- rtx A4500 <- |on demand 0.34$/hr| or |spot(interruptible) 0.18$/hr|
-- 0.18$/h * 12h/d * 30d = 64.8$, 사용량이 적더라도 고정비용 지출인것이 고려할점 (서버리스 <- by 사용량)
-- 리눅스 ssh 방식만 지원, stream이 잘 될지 모르는 상황
-- not tested yet, 서빙 시간 아직 모름, 아무 떄에나 요청하더라도 바로 토큰 하나라도 나오긴 할것이라고 생각
 
 ## before running
 - **openAI** / **anthropic** / **huggingface** <- <ins>API</ins> 키 필요, [구글 독스](https://docs.google.com/document/d/1d9dwWi_1I1ka3cJxiVDRBJ3--9gN7M3svROZjlENnLw/edit?usp=drivesdk)에 요청
@@ -108,3 +98,17 @@ docker run -d --name mycontainer -p 8000:8000 my-fastapi-app
 - langchain/vllm, **vllm**
 #### server with GPU_less (API)
 - langchain/hf, anthropic, **openAI**, **runpod**
+
+
+
+
+- plan: gpu 서버리스 방식으로 서빙 / runpod 개인모델 + openAI API 활용
+
+- runpod 개인모델 서빙 시 최소 30초 - 최대 3분 소모 / 모델 올라간 이후부터는 5초 내외 답변 생성 
+
+- openAI 바로 호출 가능
+
+- runpod 서버리스 말고 직접 대여 <- rtx A4500 <- |on demand 0.34$/hr| or |spot(interruptible) 0.18$/hr|
+- 0.18$/h * 12h/d * 30d = 64.8$, 사용량이 적더라도 고정비용 지출인것이 고려할점 (서버리스 <- by 사용량)
+- 리눅스 ssh 방식만 지원, stream이 잘 될지 모르는 상황
+- not tested yet, 서빙 시간 아직 모름, 아무 떄에나 요청하더라도 바로 토큰 하나라도 나오긴 할것이라고 생각
