@@ -7,6 +7,7 @@
 - openAI 바로 호출 가능
 
 - runpod 서버리스 말고 직접 대여 <- rtx A4500 <- |on demand 0.34$/hr| or |spot(interruptible) 0.18$/hr|
+- 0.18$/h * 12h/d * 30d = 64.8$, 사용량이 적더라도 고정비용 지출인것이 고려할점 (서버리스 <- by 사용량)
 - not tested yet
 
 ## before running
