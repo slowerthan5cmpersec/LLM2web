@@ -102,13 +102,18 @@ docker run -d --name mycontainer -p 8000:8000 my-fastapi-app
 
 
 
-- plan: gpu 서버리스 방식으로 서빙 / runpod 개인모델 + openAI API 활용
+## thinks
 
-- runpod 개인모델 서빙 시 최소 30초 - 최대 3분 소모 / 모델 올라간 이후부터는 5초 내외 답변 생성 
+- runpod 직접 대여 <- rtx L4 <- |on demand 0.43$/hr| or |spot(interruptible) 0.22$/hr|
+- 0.22$/h * 12h/d * 30d = 79.2(=80)$, interruptible이 뭔지 아직 경험 X
+- dockerfile template 통해서 pod 생성 가능, 개발 일단 편해짐 (리눅스 ssh 대비)
+- 토큰 바로바로 나옴, 속도 빠름
+- prob: stop runpodctl pod id <- works / start runpodctl pod id <- spot방식이라고 못하게함, 웹 들어가서 직접 켜야함
+- hence: 상남자 <- 아침 12시 밤 12시에 직접 키고 직접 끄기 or 셀레니움으로 자동화하기(위험?할것같음)
+- 우려: 가끔 수요 꽉찼다고 특정 gpu 못들어가게 하는 케이스 있음, 그게 L4라면 / 너무 작을수도 (request 한번에 gpu util 60% 뜸)
 
-- openAI 바로 호출 가능
-
-- runpod 서버리스 말고 직접 대여 <- rtx A4500 <- |on demand 0.34$/hr| or |spot(interruptible) 0.18$/hr|
-- 0.18$/h * 12h/d * 30d = 64.8$, 사용량이 적더라도 고정비용 지출인것이 고려할점 (서버리스 <- by 사용량)
-- 리눅스 ssh 방식만 지원, stream이 잘 될지 모르는 상황
-- not tested yet, 서빙 시간 아직 모름, 아무 떄에나 요청하더라도 바로 토큰 하나라도 나오긴 할것이라고 생각
+### or
+- serverless에서 active worker를 하나 지정
+- 0.00010$/s 측정, 0.00010$/s * 3600s/h * 12h/d * 30d = 129.6$ (0.36$/h <-> 0.22$/h)
+- 장점: 관리가 편할 것? / dis: expensive
+- 30% discount 해준다는데 잘 모르겠음
