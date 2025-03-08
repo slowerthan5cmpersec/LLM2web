@@ -111,6 +111,8 @@ docker run -d --name mycontainer -p 8000:8000 my-fastapi-app
 - prob: stop runpodctl pod id <- works / start runpodctl pod id <- spot방식이라고 못하게함, 웹 들어가서 직접 켜야함
 - hence: 상남자 <- 아침 12시 밤 12시에 직접 키고 직접 끄기 / 귀찮아 <- 셀레니움으로 자동화하기(위험?할것같음)
 - 우려: 가끔 수요 꽉찼다고 특정 gpu 못들어가게 하는 케이스 있음, 그게 L4라면 / 너무 작을수도 (request 한번에 gpu util 60% 뜸, async는 돼서 터질일은 없을듯)
+- **보안 중요** : 로컬로 값을 던져주는게 아니라 runpod 웹이 id 따라서 그냥 생성, 누구나 접속 가능, CORS 설정으로 되려나 모르겠음
+- 이거 덕분에? 로컬에서 파이썬 fastapi restapi 서버 돌릴 필요 없이 바로 js로 fetch 가능함
 
 ### or
 - serverless에서 active worker를 하나 지정
