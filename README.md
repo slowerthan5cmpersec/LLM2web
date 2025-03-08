@@ -109,7 +109,7 @@ docker run -d --name mycontainer -p 8000:8000 my-fastapi-app
 - dockerfile template 통해서 pod 생성 가능, 개발 일단 편해짐 (리눅스 ssh 대비)
 - 토큰 바로바로 나옴, 속도 빠름
 - prob: stop runpodctl pod id <- works / start runpodctl pod id <- spot방식이라고 못하게함, 웹 들어가서 직접 켜야함
-- hence: 상남자 <- 아침 12시 밤 12시에 직접 키고 직접 끄기 or 셀레니움으로 자동화하기(위험?할것같음)
+- hence: 상남자 <- 아침 12시 밤 12시에 직접 키고 직접 끄기 / 귀찮아 <- 셀레니움으로 자동화하기(위험?할것같음)
 - 우려: 가끔 수요 꽉찼다고 특정 gpu 못들어가게 하는 케이스 있음, 그게 L4라면 / 너무 작을수도 (request 한번에 gpu util 60% 뜸)
 
 ### or
